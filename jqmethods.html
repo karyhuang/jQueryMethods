@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Methods Demo</title>
+  <!-- include jQuery in head or right before scripts in the body -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <style type="text/css">
+    .correct{
+      color: green;
+    }
+    .wrong{
+      color: red;
+      background-color: pink;
+    }
+    .done{
+      color: gray;
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <h1>jQuery Methods Demo Page</h1>
+  <h2></h2>
+
+  <input id="inputBox1" type="text">
+  <input id="inputBox2" type="text" value="Kary">
+  <select>
+    <option>Dogs</option>
+    <option>Cats</option>
+    <option>Turtles</option>
+  </select>
+
+  <ul>
+    <li>Skittles</li>
+    <li>Starburst</li>
+    <li>Twix</li>
+  </ul>
+
+  <ol>
+    <li>Skittles</li>
+    <li>Starburst</li>
+    <li>Twix</li>
+  </ol>
+
+  <img src="https://img.buzzfeed.com/buzzfeed-static/static/2017-01/31/16/asset/buzzfeed-prod-fastlane-01/sub-buzz-29032-1485899452-1.jpg?crop=625:630;0,60&downsize=715:*&output-format=auto&output-quality=auto">
+  <img src="https://img.buzzfeed.com/buzzfeed-static/static/2017-01/31/16/asset/buzzfeed-prod-fastlane-01/sub-buzz-29032-1485899452-1.jpg?crop=625:630;0,60&downsize=715:*&output-format=auto&output-quality=auto">
+  <img src="https://img.buzzfeed.com/buzzfeed-static/static/2017-01/31/16/asset/buzzfeed-prod-fastlane-01/sub-buzz-29032-1485899452-1.jpg?crop=625:630;0,60&downsize=715:*&output-format=auto&output-quality=auto">
+
+  <script type="text/javascript">
+    // resize imgs
+    $('img').css('width','300px');
+
+    // some common methods
+
+    // .text() is the same as .textContent() in VanillaJS
+    // this will get the text of first matching element or set the text for every matching element
+    $('h2').text('I am added by jQuery');
+
+    // .html() is the same as .innerHTML() in VanillaJS
+    // this will get the html of first matching element or set the html for every matching element
+    console.log($('ul').text());
+    console.log($('ul').html());
+    // this will print the first matching li in the console
+    console.log($('li').html());
+    // this will rewrite the ol
+    $('ol').html("<li>I hacked your OL!</li><li>I hacked again</li>");
+    // this will change all ul li html
+    $('ul li').html("<a href='google.com'>GOOGLE</a>");
+
+    // .attr() 
+    // this will get the value of an attribute of first matching element or set the html for every matching element
+    // this will change the type of first input box
+    $('#inputBox1').attr('type','color');
+    // this will change the img src of first img
+    $('img:first-of-type').attr('src','https://i.pinimg.com/736x/a7/f8/70/a7f870516475a1fc3b52dad9b9ec2c4b--baby-beagle-beagle-puppies-names.jpg');
+    // this will change the img src of the last img, using the .last() method
+    $('img').last().attr('src','https://i.pinimg.com/736x/a7/f8/70/a7f870516475a1fc3b52dad9b9ec2c4b--baby-beagle-beagle-puppies-names.jpg');
+
+    // .val() - mainly used to get values of input, select and textarea 
+    // this will get the value of first matching element or set the html for every matching element
+    // this will get the current value of input box
+    console.log($('#inputBox2').val());
+    // this will set the value of input box to be empty
+    $('#inputBox2').val("");
+    // this will get the current value of select box
+    console.log($('select').val());
+    // this will set the value of select box to Turtles
+    $('select').val('Turtles');
+
+    // .addClass() 
+    // .removeClass()
+    // .toggleClass()
+    $('h1').addClass('correct');
+    $('li').addClass('wrong');
+    $('li').removeClass('wrong').addClass('correct');
+    // this will toggle class 'done' for the first li in the ol using the .first() method
+    $('ol li').first().toggleClass('done');
+
+  </script>
+
+</body>
+</html>
